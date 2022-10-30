@@ -1,29 +1,34 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import './Header.scss'
 
 export default function Header() {
+  const { t } = useTranslation()
+
   return (
     <header>
       <div className='header-inner'>
         <div className='logo'>
-          <Link to='/'>CURY</Link>
+          <Link to='/'>
+            <p className='title'>{t('cury')}</p>
+          </Link>
         </div>
         <nav>
           <ul>
             <li>
-              <Link to='/about-me'>About Me</Link>
+              <Link to='/about-me'>{t('about.me')}</Link>
             </li>
             <li>
-              <Link to='/experience'>Experience</Link>
+              <Link to='/experience'>{t('experiencia')}</Link>
             </li>
             <li>
-              <Link to='/tech'>Techs</Link>
+              <Link to='/tech'>{t('tecnologias')}</Link>
             </li>
             <li>
-              <Link to='/about-folio'>About Portfolio</Link>
+              <Link to='/about-folio'>{t('sobre.o.portifolio')}</Link>
             </li>
             <li className='btn'>
-              <Link to='/contact'>Contact</Link>
+              <Link to='/contact'>{t('contate-me')}</Link>
             </li>
           </ul>
         </nav>
