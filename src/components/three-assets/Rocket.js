@@ -17,7 +17,6 @@ const Rocket = (props) => {
   const ref = useRef()
 
   useEffect(() => {
-    console.log(planet001)
     if (planet001 && planet001.isMesh) {
       planet001.castShadow = true
       planet001.receiveShadow = true
