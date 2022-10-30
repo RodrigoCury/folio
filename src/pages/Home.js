@@ -1,30 +1,33 @@
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import Stars from 'components/three-assets/Stars'
-import { createRef, Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useInView } from 'react-intersection-observer'
 import Rocket from '../components/three-assets/Rocket'
 import './Home.scss'
-
-const state = {
-  sections: 1,
-  pages: 1,
-  zoom: 1,
-  top: createRef()
-}
 
 export const Home = () => {
   const cameraPosition = [0, 0, 25 / 2]
 
   const { t } = useTranslation()
 
+  const [refItem, inView] = useInView({
+    threshold: 0
+  })
+  useEffect(() => {
+    inView &&
+      (document.getElementsByClassName('app-root')[0].style.backgroundColor =
+        '#000')
+  }, [inView])
+
   return (
-    <div style={{ height: '100vh' }}>
+    <div ref={refItem} style={{ height: '100vh' }}>
       <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
         <Suspense fallback={null}>
           <Rocket />
           <Stars />
-          <HTMLContent state={state} bgColor={'black'}>
+          <HTMLContent bgColor={'black'}>
             <h1>{t('rodrigo.cury')}</h1>
             <h3>{t('desenvolvedor.backend.pleno')}</h3>
           </HTMLContent>
