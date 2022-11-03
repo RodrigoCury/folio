@@ -41,7 +41,7 @@ export const Lights = ({ color = 'white' }) => {
       <spotLight
         castShadow
         position={[-2, 4, 20]}
-        shadow-mapSize={[512 * 4, 512 * 4]}
+        shadow-mapSize={[512 * 8, 512 * 8]}
         intensity={0.8}
       />
 

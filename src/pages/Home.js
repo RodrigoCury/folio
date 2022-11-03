@@ -4,6 +4,7 @@ import Stars from 'components/three-assets/Stars'
 import { Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
+import useAccentColor from 'utils/hooks/useAccentColors'
 import Rocket from '../components/three-assets/Rocket'
 import './Home.scss'
 
@@ -15,10 +16,10 @@ export const Home = () => {
   const [refItem, inView] = useInView({
     threshold: 0
   })
+
+  const changeAccentColor = useAccentColor()
   useEffect(() => {
-    inView &&
-      (document.getElementsByClassName('app-root')[0].style.backgroundColor =
-        '#000')
+    inView && changeAccentColor('#000000')
   }, [inView])
 
   return (
