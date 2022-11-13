@@ -17,9 +17,9 @@ export const Home = () => {
     threshold: 0
   })
 
-  const changeAccentColor = useAccentColor()
+  const changeAccentColor = useAccentColor('#000000')
   useEffect(() => {
-    inView && changeAccentColor('#000000')
+    inView && changeAccentColor()
   }, [inView])
 
   return (

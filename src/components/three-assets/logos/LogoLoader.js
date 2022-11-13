@@ -48,4 +48,35 @@ const LogoLoader = ({
   )
 }
 
+useGLTF.preload([
+  '/3d-models/Kt-logo.glb',
+  '/3d-models/Java.glb',
+  '/3d-models/rx.glb',
+  '/3d-models/pyLogo.glb',
+  '/3d-models/nodejs.glb',
+  '/3d-models/spring.glb',
+  '/3d-models/spring-reactive.glb',
+  '/3d-models/docker.glb',
+  '/3d-models/git.glb',
+  '/3d-models/kafka.glb',
+  '/3d-models/psql.glb',
+  '/3d-models/mongo.glb',
+  '/3d-models/redis.glb',
+  '/3d-models/linux.glb',
+  '/3d-models/react.glb',
+  '/3d-models/three.glb',
+  '/3d-models/html.glb',
+  '/3d-models/css.glb',
+  '/3d-models/jsLogo.glb',
+  '/3d-models/aws-logo.glb',
+  '/3d-models/localstack.glb',
+  '/3d-models/aws-services.glb',
+  '/3d-models/wpp.glb',
+  '/3d-models/eMailLogo.glb',
+  '/3d-models/githubLogo.glb',
+  '/3d-models/bitb.glb',
+  '/3d-models/lkdLogo.glb',
+  '/3d-models/blender.glb'
+])
+
 export default LogoLoader

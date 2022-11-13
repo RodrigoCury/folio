@@ -31,5 +31,10 @@
   "technology.redis.description": "Tenho fundamentos em Redis para lidar com banco em memória para cacheamento local de informação estruturadas",
   "technology.front": "Front End",
   "technology.front.description": "Minha especialização é Back End, porém adoro trabalahr com interfaces criativas em meu tempo livre. Tenho boas noções com React.js. Consigo trabalhar bem com HTML, CSS e JS Vanilla. Tenho paixão em trabalhar com Three.js para criar interfaces 3D. Profissionalmente, sempre que necessário, vou ajudar a equipe Front End em suas entregas.",
-  "technology.aws": "AWS"
+  "technology.aws": "AWS",
+  "name.first": "Rodrigo",
+  "name.last": "Cury",
+  "who-am-i.1": "Sou um desenvolvedor Brasileiro. Tenho uma painhão séria por desenvolvimento Back-End e participar do processo de criação sistemas que solucionam problemas complexos com eficácia e eficiência.",
+  "who-am-i.2": "Sou um homem bem organizado.<br/> Amo trabalhar em equipe, absorvendo e compartilhando conhecimento. Capaz de funcionar de forma independente.",
+  "who-am-i.3": "Sou interessado por todo o espectro Back-End, equipado com as ferramentas corretas para o trabalho. entregando soluções resilientes e optimizadas para escala."
 }

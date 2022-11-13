@@ -12,6 +12,7 @@ header {
 
     text-decoration: none;
     color: #fff;
+    transition: 0.3s;
   }
 
   .header-inner {
@@ -128,7 +129,7 @@ header {
       }
 
       .menu-wrapper {
-        background-color: rgb(255, 255, 255);
+        background-color: #FFFFFFDD;
         border: 2px solid #23232a;
         border-bottom-right-radius: 32px;
         border-bottom-left-radius: 16px;

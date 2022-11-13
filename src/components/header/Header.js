@@ -2,6 +2,7 @@ import BurguerMenu from 'components/icons/BurguerMenu'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import useAccentColor from 'utils/hooks/useAccentColors'
 import useMediaQuery from 'utils/hooks/useMediaQuery'
 import './Header.scss'
 
@@ -15,6 +16,11 @@ export default function Header() {
   const toggleMenu = () => {
     setBurguerMenuOpen((open) => !open)
   }
+
+  const accentColors = useAccentColor()
+  useEffect(() => {
+    accentColors()
+  }, [showBurguerMenu])
 
   useEffect(() => {
     setBurguerMenuOpen(false)

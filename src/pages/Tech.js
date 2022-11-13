@@ -49,20 +49,20 @@ const TechStack = ({
     threshold: 0.5
   })
 
-  const changeColors = useAccentColor()
+  const changeColors = useAccentColor(bgColor)
 
   useEffect(() => {
-    inView && changeColors(bgColor)
+    inView && changeColors()
   }, [inView])
 
   return (
     <div ref={refItem} style={{ height: '100vh' }}>
-      <Canvas
-        shadows
-        dpr={[1, 2]}
-        camera={{ position: cameraPosition, fov: 60 }}
-      >
-        <Suspense fallback={null}>
+      <Suspense fallback={<span>Loading....</span>}>
+        <Canvas
+          shadows
+          dpr={[1, 2]}
+          camera={{ position: cameraPosition, fov: 60 }}
+        >
           {inView && (
             <>
               <OrbitControls enableZoom={false} />
@@ -77,8 +77,8 @@ const TechStack = ({
             description={description}
             color={bgColor}
           />
-        </Suspense>
-      </Canvas>
+        </Canvas>
+      </Suspense>
     </div>
   )
 }

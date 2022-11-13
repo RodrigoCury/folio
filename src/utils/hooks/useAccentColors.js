@@ -1,34 +1,58 @@
-const useAccentColor = () => {
-  const body = document.getElementsByClassName('app-root')[0]
-  const menuWrapper = document.getElementsByClassName('menu-wrapper')[0]
-  const contactbutton = document.getElementsByClassName('menu-wrapper')[0]
+import { useCallback, useEffect } from 'react'
 
-  return (color) => {
-    const { r, g, b } = hexToRgb(color)
+const useAccentColor = (color) => {
+  const cb = useCallback(() => {
+    const body = document.getElementsByClassName('app-root')[0]
+    const colorToUse = color || getBodyColor(body)
 
-    const useRed = r * 0.299 + g * 0.587 + b * 0.114
+    const mobileMenuWrapper = document.getElementsByClassName('menu-wrapper')[0]
+    const a = [...document.getElementsByTagName('a')]
 
-    const textColor = r && g && b && useRed > 186 ? '#000000' : '#ffffff'
+    const textColor = useWhiteOrBlackText(colorToUse)
 
-    const colorWithFade = color + 'DD'
+    body.style.backgroundColor = colorToUse
 
-    body.style.backgroundColor = color
-    menuWrapper && (menuWrapper.style.backgroundColor = colorWithFade)
-    contactbutton &&
-      [...contactbutton.children].forEach((element) => {
-        element && (element.style.color = textColor)
-      })
-  }
+    a.forEach((link) => {
+      if (!link.parentElement.classList.contains('btn')) {
+        link.style.color = textColor
+      }
+    })
+
+    if (mobileMenuWrapper) {
+      mobileMenuWrapper.style.backgroundColor = colorToUse + 'DD'
+    }
+  }, [color])
+
+  useEffect(() => {
+    cb()
+  }, [color])
+
+  return cb
 }
-const hexToRgb = (hex) => {
+
+const useWhiteOrBlackText = (hex) => {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  return result
+  const { r, g, b } = result
     ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16)
       }
     : {}
+
+  const useRed = r * 0.299 + g * 0.587 + b * 0.114
+
+  return r && g && b && useRed > 186 ? '#000000' : '#ffffff'
 }
 
 export default useAccentColor
+const getBodyColor = (body) =>
+  '#' +
+  body.style.backgroundColor
+    .replace(/[rgb()]/g, '')
+    .split(', ')
+    .map((n) => {
+      const hex = parseInt(n).toString(16)
+      return hex.length < 2 ? '0' + hex : hex
+    })
+    .reduce((cur, nex) => cur + nex)
