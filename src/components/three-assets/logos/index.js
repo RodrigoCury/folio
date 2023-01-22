@@ -109,16 +109,16 @@ export const pages = (t) => [
       <>
         <KtLogo position={[0, 0, 0]} />
         <CubicBezierLine
-          start={[0, 0, -0.5]} // Starting point
-          end={[1.5, -1, -1]} // Ending point
-          midA={[0, -2, 0]} // First control point
-          midB={[3, -2, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -0.5]}
+          end={[1.5, -1, -1]}
+          midA={[0, -2, 0]}
+          midB={[3, -2, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <RxLogo position={[1.5, -1, -1]} scale={[0.25, 0.25, 0.25]} />
       </>
@@ -134,16 +134,16 @@ export const pages = (t) => [
       <>
         <JavaLogo position={[0, 0, 0]} />
         <CubicBezierLine
-          start={[0, -0.65, -0.5]} // Starting point
-          end={[1.5, -1, -1]} // Ending point
-          midA={[0, -2, 0]} // First control point
-          midB={[1, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, -0.65, -0.5]}
+          end={[1.5, -1, -1]}
+          midA={[0, -2, 0]}
+          midB={[1, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <RxLogo position={[1.5, -1, -1]} scale={[0.25, 0.25, 0.25]} />
       </>
@@ -196,29 +196,29 @@ export const pages = (t) => [
       <>
         <GitLogo position={[0, 0, 0]} />
         <CubicBezierLine
-          start={[0, -0.6, -0.5]} // Starting point
-          end={[-1.1, -1.2, -0.1]} // Ending point
-          midA={[0, -2, 0]} // First control point
-          midB={[-1, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, -0.6, -0.5]}
+          end={[-1.1, -1.2, -0.1]}
+          midA={[0, -2, 0]}
+          midB={[-1, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <BitBucketLogo scale={[0.25, 0.25, 0.25]} position={[-1.2, -1.2, 0]} />
         <CubicBezierLine
-          start={[0, -0.6, -0.5]} // Starting point
-          end={[1, -1.2, -0.1]} // Ending point
-          midA={[0, -2, 0]} // First control point
-          midB={[1, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, -0.6, -0.5]}
+          end={[1, -1.2, -0.1]}
+          midA={[0, -2, 0]}
+          midB={[1, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <GitHubLogo scale={[0.25, 0.25, 0.25]} position={[1.2, -1.2, 0]} />
       </>
@@ -266,65 +266,65 @@ export const pages = (t) => [
       <>
         <AWSLogo scale={[1.5, 1.5, 1.5]} position={[0, 0, -1]} />
         <CubicBezierLine
-          start={[0, 0, -2]} // Starting point
-          end={[0, -2.25, 0]} // Ending point
-          midA={[0, 0, -2]} // Starting point
-          midB={[0, 0, -2]} // Starting point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -2]}
+          end={[0, -2.25, 0]}
+          midA={[0, 0, -2]}
+          midB={[0, 0, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <LocalstackLogo position={[0, -2.25, 0]} scale={[0.3, 0.3, 0.3]} />
         <CubicBezierLine
-          start={[0, 0, -2]} // Starting point
-          end={[-0.5, -1.6, -1]} // Ending point
-          midA={[0, -2, -1]} // First control point
-          midB={[-0.5, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -2]}
+          end={[-0.5, -1.6, -1]}
+          midA={[0, -2, -1]}
+          midB={[-0.5, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <CubicBezierLine
-          start={[0, 0, -2]} // Starting point
-          end={[-1.2, -1.9, -1]} // Ending point
-          midA={[0, -2, -1]} // First control point
+          start={[0, 0, -2]}
+          end={[-1.2, -1.9, -1]}
+          midA={[0, -2, -1]}
           midB={[-1, -0.9, -2]}
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <CubicBezierLine
-          start={[0, 0, -2]} // Starting point
-          end={[0.5, -1.6, -1]} // Ending point
-          midA={[0, -2, -1]} // First control point
-          midB={[0.5, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -2]}
+          end={[0.5, -1.6, -1]}
+          midA={[0, -2, -1]}
+          midB={[0.5, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <CubicBezierLine
-          start={[0, 0, -2]} // Starting point
-          end={[1.2, -1.9, -1]} // Ending point
-          midA={[0, -2, -1]} // First control point
+          start={[0, 0, -2]}
+          end={[1.2, -1.9, -1]}
+          midA={[0, -2, -1]}
           midB={[1, -0.9, -2]}
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <AWSServicesLogo position={[0, -1.9, 0]} scale={[0.3, 0.3, 0.3]} />
       </>
@@ -340,55 +340,55 @@ export const pages = (t) => [
       <>
         <ReactLogo />
         <CubicBezierLine
-          start={[0, 0, -0.5]} // Starting point
-          end={[-2, -1.7, 0]} // Ending point
-          midA={[-1, -2, -1]} // First control point
-          midB={[-2, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -0.5]}
+          end={[-2, -1.7, 0]}
+          midA={[-1, -2, -1]}
+          midB={[-2, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <HTMLLogo scale={[0.3, 0.3, 0.3]} position={[-2, -1.7, 0]} />
         <CubicBezierLine
-          start={[0, 0, -0.5]} // Starting point
-          end={[-1, -1.7, 0]} // Ending point
-          midA={[0, -2, -1]} // First control point
-          midB={[-1, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -0.5]}
+          end={[-1, -1.7, 0]}
+          midA={[0, -2, -1]}
+          midB={[-1, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <CSSLogo scale={[0.3, 0.3, 0.3]} position={[-1, -1.7, 0]} />
         <CubicBezierLine
-          start={[0, 0, -0.5]} // Starting point
-          end={[1, -1.7, 0]} // Ending point
-          midA={[0, -2, -1]} // First control point
-          midB={[1, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -0.5]}
+          end={[1, -1.7, 0]}
+          midA={[0, -2, -1]}
+          midB={[1, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <JSLogo scale={[0.3, 0.3, 0.3]} position={[1, -1.7, 0]} />
         <CubicBezierLine
-          start={[0, 0, -0.5]} // Starting point
-          end={[1.9, -1.7, 0]} // Ending point
-          midA={[1, -2, -1]} // First control point
-          midB={[2, -1, -2]} // Second control point
-          color={{ r: 50, b: 127, g: 176 }} // Default
-          lineWidth={1} // In pixels (default)
-          dashed={false} // Default
+          start={[0, 0, -0.5]}
+          end={[1.9, -1.7, 0]}
+          midA={[1, -2, -1]}
+          midB={[2, -1, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
           linewidth={2}
-          linecap={'round'} //ignored by WebGLRenderer
-          linejoin={'round'} // All THREE.LineMaterial props are valid
+          linecap={'round'}
+          linejoin={'round'}
         />
         <ThreeLogo scale={[0.3, 0.3, 0.3]} position={[2, -1.7, 0]} />
       </>
