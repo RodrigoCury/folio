@@ -31,7 +31,6 @@ const Crystal = ({ ...props }) => {
         rotation={[Math.PI / 2, 0, 0]}
         {...props}
       >
-        <axesHelper args={[4]} />
         <meshPhysicalMaterial {...crystalProps} />
       </mesh>
     </group>
