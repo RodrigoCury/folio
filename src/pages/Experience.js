@@ -6,7 +6,6 @@ import useAccentColor from 'utils/hooks/useAccentColors'
 import { OrbitControls, Sky } from '@react-three/drei'
 
 export const Experience = () => {
-
   const cameraPosition = [0, 0, 25 / 2]
 
   const [refItem, inView] = useInView({
@@ -19,16 +18,17 @@ export const Experience = () => {
     inView && changeAccentColor()
   }, [inView])
 
-
-  return <div ref={refItem} style={{ height: '100vh' }}>
-  <Suspense fallback={<div>...loading</div>}>
-    <Canvas shadows camera={{ position: cameraPosition, fov: 70 }} >
-      <directionalLight intensity={10} />
-      <ambientLight intensity={0.4} />
-      <OrbitControls />
-      <Planes />
-      <Sky />
-    </Canvas>
-  </Suspense>
-</div>
+  return (
+    <div ref={refItem} style={{ height: '100vh' }}>
+      <Suspense fallback={<div>...loading</div>}>
+        <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
+          <directionalLight intensity={10} />
+          <ambientLight intensity={0.4} />
+          <OrbitControls />
+          <Planes />
+          <Sky />
+        </Canvas>
+      </Suspense>
+    </div>
+  )
 }
