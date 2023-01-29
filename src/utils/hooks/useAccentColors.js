@@ -1,3 +1,4 @@
+import BurguerMenu from 'components/icons/BurguerMenu'
 import { useCallback, useEffect } from 'react'
 
 const useAccentColor = (color) => {
@@ -6,6 +7,7 @@ const useAccentColor = (color) => {
     const colorToUse = color || getBodyColor(body)
 
     const mobileMenuWrapper = document.getElementsByClassName('menu-wrapper')[0]
+    const burguerMenu = document.getElementById('nav-icon3')
     const a = [...document.getElementsByTagName('a')]
 
     const textColor = useWhiteOrBlackText(colorToUse)
@@ -21,6 +23,13 @@ const useAccentColor = (color) => {
     if (mobileMenuWrapper) {
       mobileMenuWrapper.style.backgroundColor = colorToUse + 'DD'
     }
+
+    if (burguerMenu) {
+      [...burguerMenu.childNodes].forEach(el => {
+        el.style.background = textColor
+      })
+    }
+
   }, [color])
 
   useEffect(() => {
