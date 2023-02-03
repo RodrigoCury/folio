@@ -1,6 +1,5 @@
 export { AboutFolio } from './AboutFolio'
-export { AboutMe } from './AboutMe'
-export { Contact } from './Contact'
 export { Experience } from './Experience'
+export { ContactMe } from './ContactMe'
 export { Home } from './Home'
 export { Tech } from './Tech'

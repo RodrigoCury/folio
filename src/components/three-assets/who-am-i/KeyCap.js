@@ -27,7 +27,8 @@ const Instance = ({ letter, children, index, ...props }) => {
   const letterMaterial = materials['Letter']
 
   useEffect(() => {
-    letterMaterial.color = { isColor: true, r: 255, g: 255, b: 255 }
+    keyCapMaterial.color = { isColor: true, r: 10, g: 10, b: 10 }
+    letterMaterial.color = { isColor: true, r: 0, g: 0, b: 0 }
   }, [letterMaterial])
 
   // Animations

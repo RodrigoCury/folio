@@ -38,11 +38,11 @@ export const Home = () => {
   )
 }
 
-const HTMLContent = ({ domContent, children }) => {
+export const HTMLContent = ({ domContent, children }) => {
   return (
     <group position={[0, 0, 0]}>
       <Html fullscreen portal={domContent} as='div' className='home-container'>
-        <>{children}</>
+        {children}
       </Html>
     </group>
   )

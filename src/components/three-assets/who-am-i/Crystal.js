@@ -4,7 +4,7 @@ import useDebugControls from 'utils/hooks/useDebugControls'
 const Crystal = ({ ...props }) => {
   const {
     nodes: { Plane: Crystal }
-  } = useGLTF('/3d-models/abstract/crystal-G.glb')
+  } = useGLTF('/3d-models/abstract/crystal.glb')
 
   const materialprops = {
     thickness: 1,

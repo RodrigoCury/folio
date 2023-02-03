@@ -1,7 +1,7 @@
 .who_am_i {
   color: rgb(0, 0, 0);
   position: absolute;
-  text-shadow: 0px 0px 20px rgb(255, 255, 255);
+  text-shadow: 0px 0px 5px rgb(255, 255, 255);
 }
 
 .heading {
@@ -14,36 +14,49 @@
   right: 5vw;
 }
 
-.subtext_1 {
+.subtext_1,
+.subtext_2,
+.subtext_3,
+.subtext_4 {
+  text-align: justify;
   font-size: 2em;
-  top: 125vh;
-  right: 5vw;
   max-width: 45vw;
-  text-align: right;
+}
+
+.subtext_1,
+.subtext_3 {
+  right: 5vw;
+}
+
+.subtext_2,
+.subtext_4 {
+  left: 5vw;
+}
+
+.subtext_1 {
+  top: 125vh;
 }
 
 .subtext_2 {
-  font-size: 2em;
-  top: 205vh;
-  left: 5vw;
-  max-width: 45vw;
-  text-align: left;
+  top: 200vh;
 }
 
 .subtext_3 {
-  font-size: 2em;
   top: 270vh;
-  right: 5vw;
-  max-width: 45vw;
-  text-align: right;
 }
 
 .subtext_4 {
-  font-size: 2em;
   top: 350vh;
-  left: 5vw;
-  max-width: 45vw;
-  text-align: right;
+}
+
+.link {
+  text-decoration: none;
+  color: transparent;
+  background: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
 }
 
 

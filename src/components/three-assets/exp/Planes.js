@@ -1,8 +1,6 @@
 import { useGLTF, QuadraticBezierLine } from '@react-three/drei'
 import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { Plane } from '../../../../node_modules/drei/shapes'
-import { useState } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 import { Vector3 } from 'three'
 import { useEffect } from 'react'
 
@@ -12,7 +10,7 @@ const start1 = new Vector3(-15, 1, 0)
 const start2 = new Vector3(-15, 0, 0)
 const start3 = new Vector3(-15, -1, 0)
 
-const Planes = () => {
+const Planes = ({...props}) => {
   const {
     nodes: { Regular_Plane }
   } = useGLTF(`/3d-models/plane-1.glb`)
@@ -30,7 +28,7 @@ const Planes = () => {
   const planeLine2 = useRef()
   const planeLine3 = useRef()
 
-  const [mousePos, setMousePos] = useState(new Vector3())
+  const { mouse: mousePos } = useThree()
 
   useFrame(({ clock: { elapsedTime } }) => {
     const planes = [plane1, plane2, plane3]
@@ -39,7 +37,8 @@ const Planes = () => {
       current.position.y = Math.cos(
         -((Math.PI / 2) * index * noise[index]) + elapsedTime
       )
-      current.lookAt(mousePos.x, mousePos.y * noise[index] * 2, mousePos.z)
+      current.lookAt(0, mousePos.x * 100 * noise[index] * 2, 200)
+      current.rotation.x = Math.sin((mousePos.x / 2) * Math.PI)
       if (planeLines[index].current) {
         planeLines[index].current.position.y = current.position.y
       }
@@ -58,7 +57,7 @@ const Planes = () => {
 
   return (
     <>
-      <group>
+      <group {...props}>
         <Cable start={start1} end={plane1} />
         <mesh
           geometry={Regular_Plane.geometry}
@@ -90,15 +89,6 @@ const Planes = () => {
           <meshStandardMaterial color='#FFF' />
         </mesh>
       </group>
-      <Plane
-        args={[40, 40]}
-        position={[0, 0, -3]}
-        onPointerMove={({ point }) =>
-          setMousePos({ x: point.x, y: -point.x * 12.5, z: 200 })
-        }
-      >
-        <meshPhongMaterial color='#000000' opacity={0.01} transparent />
-      </Plane>
     </>
   )
 }

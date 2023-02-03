@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+$background-color: #D7CCC8;
+$background-color-seethrough: #ffffffc7;
+$font-family: 'Roboto', sans-serif;
+
+@mixin btn($fontcolor: #FAFAFA) {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  padding: 15px;
+  background: #189AB4;
+  color: $fontcolor;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+@mixin message($fontcolor: #05445E) {
+  color: $fontcolor;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+@mixin input($bkgnd: #ffffffa5) {
+  font-family: $font-family;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  outline: 0;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  background: $bkgnd;
+  resize: none;
+  border-radius: 25px;
+  border: 2px solid #D4F1F4;
+  transition: 0.25s;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  .wrapper {
+    margin-right: 25px;
+    border-radius: 25px;
+    border: 3px solid #75E6DA;
+    background: $background-color-seethrough;
+    position: relative;
+    max-width: 300px;
+    padding: 45px 45px 10px 45px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      text-align: center;
+      color: #189AB4;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+      font-size: 2em;
+      font-weight: 500;
+    }
+
+    .form {
+
+      input,
+      textarea {
+        @include input;
+
+        ::placeholder,
+        ::-webkit-input-placeholder,
+        ::-moz-placeholder {
+          color: #05445E;
+          font-weight: bold
+        }
+
+      }
+
+      .error {
+        border: 2px solid #ff4375 !important;
+      }
+
+      .error-message {
+        border: 2px solid #ff4375 !important;
+        background: #fba8a8;
+        color: rgb(255, 255, 255);
+        font-size: 1.1em;
+        text-align: center;
+        padding: 5px;
+        border-radius: 10px;
+        margin-top: 15px;
+      }
+
+      .sent {
+        border: 2px solid #00ff77 !important;
+      }
+
+      .btn {
+        @include btn;
+      }
+
+      .btn:hover {
+        -webkit-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+        -moz-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+        box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+      }
+
+      .btn:active {
+        -webkit-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+        -moz-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+        box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+      }
+
+      .btn:disabled {
+        background-color: #7a7a7a !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+      }
+
+    }
+
+    .form .register-form {
+      display: none;
+    }
+  }
+}
+
+.svg {
+  transition: 0.25s;
+}
+
+.svg:hover {
+  fill: #127083;
+}

@@ -11,12 +11,14 @@ const WhoAmI = () => {
   const directionalLightRef = useRef()
   const directionalLightRef2 = useRef()
 
-  useFrame(({ mouse: { y } }) => {
+  useFrame(({ mouse: { y, x } }) => {
     if (directionalLightRef.current) {
-      directionalLightRef.current.position.y = 2 + y * 0.5
+      directionalLightRef.current.position.y = 2 - y * 0.5
+      directionalLightRef.current.position.x = 2 - x * 0.5
     }
     if (directionalLightRef2.current) {
-      directionalLightRef2.current.position.y = 2 + y * 0.5
+      directionalLightRef2.current.position.y = 2 - y * 0.5
+      directionalLightRef2.current.position.x = 2 - x * 0.5
     }
   })
 
@@ -24,7 +26,7 @@ const WhoAmI = () => {
 
   return (
     <Suspense>
-      <ScrollControls damping={10} pages={4}>
+      <ScrollControls damping={10} pages={3.3}>
         <Items />
         <directionalLight
           ref={directionalLightRef2}
@@ -42,18 +44,22 @@ const WhoAmI = () => {
             <br />
             {t('name.last')}
           </h1>
-          <h1 className='who_am_i subtext_1'>{t('who-am-i.1')}</h1>
-          <h1
-            className='who_am_i subtext_2'
+          <h2
+            className='who_am_i subtext_1'
+            dangerouslySetInnerHTML={{
+              __html: t('who-am-i.1', { interpolation: { escapeValue: false } })
+            }}
+          />
+          <h2 className='who_am_i subtext_2'
+          dangerouslySetInnerHTML={{
+            __html: t('who-am-i.3', { interpolation: { escapeValue: false } })
+          }}/>
+          <h2
+            className='who_am_i subtext_3'
             dangerouslySetInnerHTML={{
               __html: t('who-am-i.2', { interpolation: { escapeValue: false } })
             }}
           />
-          <h1 className='who_am_i subtext_3'>{t('who-am-i.3')}</h1>
-          <h1 className='who_am_i subtext_4'>
-            Quando não estou programando gosto de viajar, ler, estudar, beatbox,
-            fazer animações 3D.
-          </h1>
         </Scroll>
       </ScrollControls>
     </Suspense>
@@ -74,19 +80,14 @@ function Items() {
         position={[-w / 6, -h * 0.8, 0]}
       />
       <Item
-        url={'/imgs/waterfall.jpg'}
-        scale={isSmall ? [w / 2.5, w / 2, 1] : [w / 4.5, w / 3, 1]}
-        position={[w / 6, -h * 1.575, 0]}
-      />
-      <Item
         url={'/imgs/bras.jpg'}
         scale={isSmall ? [w / 2.5, w / 2, 1] : [w / 4.5, w / 3, 1]}
-        position={[-w / 6, -h * 2.25, 0]}
-      />
+        position={[w / 6, -h * 1.575, 0]}
+        />
       <Item
-        url={'/imgs/ranch.jpeg'}
-        scale={isSmall ? [w / 2.5, w / 2, 1] : [w / 4.5, w / 3, 1]}
-        position={[w / 6, -h * 2.95, 0]}
+        url={'/imgs/privacy.jpeg'}
+        scale={isSmall ? [w / 2,w / 2.5, 1] : [w / 3,w / 4.5, 1]}
+        position={[-w / 4.5, -h * 2.25, 0]}
       />
     </Scroll>
   )
