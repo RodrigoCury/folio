@@ -1,4 +1,3 @@
-import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber/'
 import { Suspense, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
@@ -12,6 +11,13 @@ import HTMLContent from 'components/three-assets/tech/HTMLContent'
 
 export const Tech = () => {
   const { t } = useTranslation()
+
+  const changeColors = useAccentColor(technologies(t)[0].bgColor)
+
+  useEffect(() => {
+    changeColors()
+  })
+
   return (
     <>
       {technologies(t).map(
@@ -65,7 +71,6 @@ const TechStack = ({
         >
           {inView && (
             <>
-              <OrbitControls enableZoom={false} />
               <Logo logo={logo} />
               <Lights />
             </>

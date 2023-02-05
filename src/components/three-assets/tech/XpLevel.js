@@ -28,7 +28,7 @@ const XpLevel = ({ level, bgColor }) => {
     hidden = !hidden
     setopc((n) => {
       const newState = {
-        opacity: hidden ? 0 : 1,
+        opacity: hidden ? 0.4 : 1,
         delay: n * 80
       }
       return newState

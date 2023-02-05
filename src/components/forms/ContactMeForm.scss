@@ -15,6 +15,7 @@ $font-family: 'Roboto', sans-serif;
   color: $fontcolor;
   font-weight: bold;
   text-transform: uppercase;
+  height: 50px;
   border-radius: 10px;
   transition: 0.3s;
 }
@@ -47,7 +48,7 @@ $font-family: 'Roboto', sans-serif;
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 
   .wrapper {
@@ -136,10 +137,30 @@ $font-family: 'Roboto', sans-serif;
   }
 }
 
-.svg {
-  transition: 0.25s;
+@media (max-width: 992px) {
+  .container {
+    align-items: center;
+    
+    .wrapper {
+      margin-left: 10px  !important;
+      margin-right: 10px  !important;
+      animation-name: inScreen;
+      animation-duration: 3s;
+      transform: translateY(calc(200vh));
+      animation-delay: 1s;
+      animation-fill-mode:forwards;
+    }
+  }
 }
 
-.svg:hover {
-  fill: #127083;
+@keyframes inScreen {
+  0% {
+      transform: translateY(calc(200vh));
+      animation-timing-function:ease-in-out
+  }
+
+  100% {
+      transform: translateY(0);
+      animation-timing-function:ease-in-out
+  }
 }

@@ -10,7 +10,7 @@ const start1 = new Vector3(-15, 1, 0)
 const start2 = new Vector3(-15, 0, 0)
 const start3 = new Vector3(-15, -1, 0)
 
-const Planes = ({...props}) => {
+const Planes = ({ ...props }) => {
   const {
     nodes: { Regular_Plane }
   } = useGLTF(`/3d-models/plane-1.glb`)

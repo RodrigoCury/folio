@@ -4,13 +4,9 @@ import { Formik, Field, Form } from 'formik'
 import './ContactMeForm.scss'
 import { GitHub, LinkedIn } from 'components/icons/Contacts'
 import { useCycle } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-const initialValue = {
-  name: '',
-  email: '',
-  message: ''
-}
-const ContactMeForm = ({sentCallback = () => {}}) => {
+const ContactMeForm = ({ sentCallback = () => {} }) => {
   const { t } = useTranslation()
 
   const [sent, cycle] = useCycle(false, true)
@@ -80,13 +76,17 @@ const ContactMeForm = ({sentCallback = () => {}}) => {
                 required=''
                 rows={5}
               ></Field>
-              <button
+              <motion.button
                 className='btn'
+                whileHover={{
+                  borderRadius: anyError(errors) ? '10px' : '25px'
+                }}
+                transition={{ duration: 0.15, ease: 'circInOut' }}
                 type='submit'
                 disabled={anyError(errors) || isSubmitting}
               >
                 Enviar
-              </button>
+              </motion.button>
               {errors.request && (
                 <div className='error-message'>{errors.request}</div>
               )}
@@ -110,8 +110,7 @@ const ContactMeForm = ({sentCallback = () => {}}) => {
   )
 }
 
-const validation = (values, props) => {
-  console.log(props)
+const validation = (values) => {
   const errors = {}
   if (!values.email) {
     errors.email = 'Required'
@@ -132,5 +131,11 @@ const validation = (values, props) => {
 
 const anyError = (errors) =>
   Object.values(errors).length && !Object.keys(errors).includes('request')
+
+const initialValue = {
+  name: '',
+  email: '',
+  message: ''
+}
 
 export default ContactMeForm

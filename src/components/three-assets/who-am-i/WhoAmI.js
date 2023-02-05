@@ -50,10 +50,12 @@ const WhoAmI = () => {
               __html: t('who-am-i.1', { interpolation: { escapeValue: false } })
             }}
           />
-          <h2 className='who_am_i subtext_2'
-          dangerouslySetInnerHTML={{
-            __html: t('who-am-i.3', { interpolation: { escapeValue: false } })
-          }}/>
+          <h2
+            className='who_am_i subtext_2'
+            dangerouslySetInnerHTML={{
+              __html: t('who-am-i.3', { interpolation: { escapeValue: false } })
+            }}
+          />
           <h2
             className='who_am_i subtext_3'
             dangerouslySetInnerHTML={{
@@ -83,10 +85,10 @@ function Items() {
         url={'/imgs/bras.jpg'}
         scale={isSmall ? [w / 2.5, w / 2, 1] : [w / 4.5, w / 3, 1]}
         position={[w / 6, -h * 1.575, 0]}
-        />
+      />
       <Item
         url={'/imgs/privacy.jpeg'}
-        scale={isSmall ? [w / 2,w / 2.5, 1] : [w / 3,w / 4.5, 1]}
+        scale={isSmall ? [w / 2, w / 2.5, 1] : [w / 3, w / 4.5, 1]}
         position={[-w / 4.5, -h * 2.25, 0]}
       />
     </Scroll>

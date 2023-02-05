@@ -24,16 +24,16 @@ export const Home = () => {
 
   return (
     <div ref={refItem} style={{ height: '100vh' }}>
-      <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
-        <Suspense fallback={null}>
+      <Suspense fallback={null}>
+        <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
           <Rocket />
           <Stars />
           <HTMLContent bgColor={'black'}>
             <h1>{t('rodrigo.cury')}</h1>
             <h3>{t('desenvolvedor.backend.pleno')}</h3>
           </HTMLContent>
-        </Suspense>
-      </Canvas>
+        </Canvas>
+      </Suspense>
     </div>
   )
 }

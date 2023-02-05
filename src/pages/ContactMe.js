@@ -11,7 +11,7 @@ import Clouds from 'components/three-assets/exp/Cloud'
 import ContactMeForm from 'components/forms/ContactMeForm'
 
 export const ContactMe = () => {
-  const cameraPosition = [0, 25, 25 / 2]
+  const cameraPosition = [0, 40, 40 / 2]
 
   const [refItem, inView] = useInView({
     threshold: 0
@@ -37,11 +37,7 @@ export const ContactMe = () => {
             enableRotate={false}
           />
           <Sky ref={sky} {...skyProps} />
-          <Html
-            fullscreen
-            as='div'
-            className={""}
-          >
+          <Html fullscreen as='div' className={''}>
             <ContactMeForm />
           </Html>
           <ShakyRig>
@@ -66,8 +62,3 @@ const skyProp = {
   turbidity: 1.7,
   exposure: 1
 }
-
-const NavyBlue = '#05445E'
-const BlueGrotto = '#189AB4'
-const BlueGreen = '#75E6DA'
-const BabyBlue = '#D4F1F4'

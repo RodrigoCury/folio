@@ -25,11 +25,10 @@ const useAccentColor = (color) => {
     }
 
     if (burguerMenu) {
-      [...burguerMenu.childNodes].forEach(el => {
+      ;[...burguerMenu.childNodes].forEach((el) => {
         el.style.background = textColor
       })
     }
-
   }, [color])
 
   useEffect(() => {

@@ -1,13 +1,12 @@
 import 'App.css'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routes/router'
 import i18n from './utils/i18n'
 import { I18nextProvider } from 'react-i18next'
+import { Root } from 'components/root/Root'
 
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <RouterProvider router={router} />
+      <Root />
     </I18nextProvider>
   )
 }
