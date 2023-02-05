@@ -55,7 +55,7 @@ const TechStack = ({
     threshold: 0.5
   })
 
-  const changeColors = useAccentColor(bgColor)
+  const changeColors = useAccentColor(bgColor, bgColor)
 
   useEffect(() => {
     inView && changeColors()

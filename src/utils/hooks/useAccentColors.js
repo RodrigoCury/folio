@@ -1,34 +1,18 @@
-import BurguerMenu from 'components/icons/BurguerMenu'
 import { useCallback, useEffect } from 'react'
 
-const useAccentColor = (color) => {
+const useAccentColor = (color, secondaryColor = '#000000') => {
   const cb = useCallback(() => {
     const body = document.getElementsByClassName('app-root')[0]
     const colorToUse = color || getBodyColor(body)
+    const links = [...document.getElementsByClassName('link-w'),...document.getElementsByClassName('link'),...document.getElementsByClassName('flag')]
 
-    const mobileMenuWrapper = document.getElementsByClassName('menu-wrapper')[0]
-    const burguerMenu = document.getElementById('nav-icon3')
-    const a = [...document.getElementsByTagName('a')]
-
-    const textColor = useWhiteOrBlackText(colorToUse)
+    links.forEach(({style}) => {
+      style.borderColor =  secondaryColor
+      style.color =  secondaryColor
+    })
 
     body.style.backgroundColor = colorToUse
 
-    a.forEach((link) => {
-      if (!link.parentElement.classList.contains('btn')) {
-        link.style.color = textColor
-      }
-    })
-
-    if (mobileMenuWrapper) {
-      mobileMenuWrapper.style.backgroundColor = colorToUse + 'DD'
-    }
-
-    if (burguerMenu) {
-      ;[...burguerMenu.childNodes].forEach((el) => {
-        el.style.background = textColor
-      })
-    }
   }, [color])
 
   useEffect(() => {
@@ -38,22 +22,8 @@ const useAccentColor = (color) => {
   return cb
 }
 
-const useWhiteOrBlackText = (hex) => {
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  const { r, g, b } = result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-      }
-    : {}
-
-  const useRed = r * 0.299 + g * 0.587 + b * 0.114
-
-  return r && g && b && useRed > 186 ? '#000000' : '#ffffff'
-}
-
 export default useAccentColor
+
 const getBodyColor = (body) =>
   '#' +
   body.style.backgroundColor

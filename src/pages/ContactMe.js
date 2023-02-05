@@ -19,7 +19,7 @@ export const ContactMe = () => {
 
   const sky = useRef()
 
-  const changeAccentColor = useAccentColor('#FFFFFF')
+  const changeAccentColor = useAccentColor('#FFFFFF', '#189AB4')
 
   const [skyProps] = useDebugControls([skyProp])
 

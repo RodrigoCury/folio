@@ -1,70 +1,59 @@
-import BurguerMenu from 'components/icons/BurguerMenu'
-import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import useAccentColor from 'utils/hooks/useAccentColors'
-import useMediaQuery from 'utils/hooks/useMediaQuery'
+import { useRef } from 'react'
+import { useDimensions } from 'utils/hooks/useDimensions'
+import { motion } from 'framer-motion'
 import './Header.scss'
+import { Navigation } from './Navigation'
+import { MenuToggle } from './MenuToggle'
+import { useState } from 'react'
+import useClickOutside from 'utils/hooks/useClickOutside'
 
-export default function Header() {
-  const { t } = useTranslation()
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: 'spring',
+      stiffness: 20,
+      restDelta: 2
+    }
+  }),
+  closed: {
+    clipPath: 'circle(30px at 40px 40px)',
+    transition: {
+      delay: 0.5,
+      type: 'spring',
+      stiffness: 400,
+      damping: 40
+    }
+  }
+}
 
-  const showBurguerMenu = useMediaQuery('(max-width: 1200px)')
+export const Header = () => {
+  const containerRef = useRef(null)
 
-  const [burguerMenuOpen, setBurguerMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const { height } = useDimensions(containerRef)
 
-  const toggleMenu = () => {
-    setBurguerMenuOpen((open) => !open)
+  const toggleOpen = () => setIsOpen((isOpen) => !isOpen)
+
+  const close = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
   }
 
-  const accentColors = useAccentColor()
-  useEffect(() => {
-    accentColors()
-  }, [showBurguerMenu])
-
-  useEffect(() => {
-    setBurguerMenuOpen(false)
-  }, [showBurguerMenu])
+  useClickOutside(containerRef, close)
 
   return (
-    <header>
-      <div className={`header-inner`}>
-        <div className='logo'>
-          <Link to='/'>
-            <p className='title'>{t('cury')}</p>
-          </Link>
-        </div>
-        <nav>
-          {!showBurguerMenu && (
-            <ul>
-              <li>
-                <Link to='/about-me'>{t('about.me')}</Link>
-              </li>
-              <li>
-                <Link to='/experience'>{t('experiencia')}</Link>
-              </li>
-              <li>
-                <Link to='/tech'>{t('tecnologias')}</Link>
-              </li>
-              <li>
-                <Link to='/about-folio'>{t('sobre.o.portifolio')}</Link>
-              </li>
-              <li className='btn'>
-                <Link to='/contact'>{t('contate-me')}</Link>
-              </li>
-            </ul>
-          )}
-          {showBurguerMenu && (
-            <>
-              <BurguerMenu
-                className='burguer-menu'
-                burguerMenuOpen={burguerMenuOpen}
-                toggleMenu={toggleMenu}
-              />
-            </>
-          )}
-        </nav>
-      </div>
-    </header>
+    <motion.nav
+      initial={false}
+      animate={isOpen ? 'open' : 'closed'}
+      custom={height}
+      className='nav'
+      ref={containerRef}
+    >
+      <motion.div className='background' variants={sidebar}></motion.div>
+      <Navigation />
+      <MenuToggle toggle={toggleOpen} close={close} />
+    </motion.nav>
   )
 }

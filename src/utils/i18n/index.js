@@ -4,18 +4,20 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import en from './locales/en-us.json'
 import pt from './locales/pt-br.json'
 
-const resources = {
+export const languages = {
   pt: {
-    translations: pt
+    translations: pt,
+    name: 'pt'
   },
   en: {
-    translations: en
+    translations: en,
+    name: 'en'
   }
 }
 
 i18n.use(LanguageDetector).init({
   // we init with resources
-  resources,
+  resources: languages,
   fallbackLng: 'pt',
   debug: false,
 
