@@ -7,6 +7,7 @@ const variants = {
   open: {
     y: 0,
     opacity: 1,
+    borderRadius: '10px' ,
     transition: {
       y: { stiffness: 1000, velocity: -100 }
     }
@@ -14,6 +15,7 @@ const variants = {
   closed: {
     y: 50,
     opacity: 0,
+    borderRadius: '10px' ,
     transition: {
       y: { stiffness: 1000 }
     }
@@ -29,12 +31,11 @@ export const MenuItem = ({ name, link }) => {
     <motion.li
       className='link-w'
       variants={variants}
-      initial={{ borderRadius: '10px' }}
       whileHover={{ scale: 1.1, borderRadius: '20px' }}
       whileTap={{ scale: 0.95 }}
     >
       <Link to={link} as='div' className='link'>
-        <p>{t(name)}</p>
+        {t(name)}
       </Link>
     </motion.li>
   )
