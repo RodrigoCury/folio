@@ -6,10 +6,10 @@ import './Root.scss'
 export const Root = () => {
   return (
     <BrowserRouter>
-      <Header/>
-        <div className='app-root'>
-          <AppRoutes />
-        </div>
+      <Header />
+      <div className='app-root' style={{ overflow: 'hidden' }}>
+        <AppRoutes />
+      </div>
     </BrowserRouter>
   )
 }

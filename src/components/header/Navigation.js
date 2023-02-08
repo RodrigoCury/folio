@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next'
 import BrazilianFlag from 'components/icons/BrazillianFlag'
 import AmericanFlag from 'components/icons/AmericanFlag'
 
-export const Navigation = () => {
+export const Navigation = ({isOpen}) => {
   const { t } = useTranslation()
 
   return (
     <div>
       <motion.div
-        className='title'
+        className={`title ${!isOpen ? 'link-disabled' : ''}`}
         whileHover={{ scale: 1.2 }}
         transition={{
           stiffness: 1000,
@@ -24,7 +24,7 @@ export const Navigation = () => {
       </motion.div>
       <motion.ul variants={variants}>
         {menuItems.map(({ link, name }, i) => (
-          <MenuItem i={i} key={i} link={link} name={name} />
+          <MenuItem i={i} isOpen={isOpen} key={i} link={link} name={name} />
         ))}
       </motion.ul>
       <motion.div

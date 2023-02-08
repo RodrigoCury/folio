@@ -7,7 +7,7 @@ const variants = {
   open: {
     y: 0,
     opacity: 1,
-    borderRadius: '10px' ,
+    borderRadius: '10px',
     transition: {
       y: { stiffness: 1000, velocity: -100 }
     }
@@ -15,26 +15,28 @@ const variants = {
   closed: {
     y: 50,
     opacity: 0,
-    borderRadius: '10px' ,
+    borderRadius: '10px',
     transition: {
       y: { stiffness: 1000 }
     }
   }
 }
 
-export const MenuItem = ({ name, link }) => {
-  
-
+export const MenuItem = ({ name, link, isOpen }) => {
   const { t } = useTranslation()
 
   return (
     <motion.li
-      className='link-w'
+      className={`link-w ${!isOpen ? 'link-disabled' : ''}`}
       variants={variants}
       whileHover={{ scale: 1.1, borderRadius: '20px' }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link to={link} as='div' className='link'>
+      <Link
+        to={link}
+        as='div'
+        className={'link'}
+      >
         {t(name)}
       </Link>
     </motion.li>

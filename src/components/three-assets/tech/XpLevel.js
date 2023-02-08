@@ -21,7 +21,7 @@ const XpLevel = ({ level, bgColor }) => {
       opacity: 0,
       position: [0, -(n + 15), 0]
     },
-    config: { mass: 100, tension: 200, friction: 200 }
+    config: { tension: 600, friction: 200 }
   }))
 
   useInterval(() => {

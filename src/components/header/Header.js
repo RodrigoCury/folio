@@ -9,7 +9,7 @@ import useClickOutside from 'utils/hooks/useClickOutside'
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    clipPath: `circle(${height * 2.5 + 200}px at 40px 40px)`,
     transition: {
       type: 'spring',
       stiffness: 20,
@@ -33,7 +33,9 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { height } = useDimensions(containerRef)
 
-  const toggleOpen = () => setIsOpen((isOpen) => !isOpen)
+  const toggleOpen = () => {
+    setIsOpen((isOpen) =>  !isOpen)
+  }
 
   const close = () => {
     if (isOpen) {
@@ -52,7 +54,7 @@ export const Header = () => {
       ref={containerRef}
     >
       <motion.div className='background' variants={sidebar}></motion.div>
-      <Navigation />
+      <Navigation isOpen={isOpen} />
       <MenuToggle toggle={toggleOpen} close={close} />
     </motion.nav>
   )
