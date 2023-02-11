@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import { Formik, Field, Form } from 'formik'
 import './ContactMeForm.scss'
-import { GitHub, LinkedIn } from 'components/icons/Contacts'
+import { GitHub, LinkedIn } from '../icons/Contacts'
 import { useCycle } from 'framer-motion'
 import { motion } from 'framer-motion'
 

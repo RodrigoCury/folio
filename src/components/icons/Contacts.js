@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import useMediaQuery from 'utils/hooks/useMediaQuery'
+import useMediaQuery from '../../utils/hooks/useMediaQuery'
 
 export const LinkedIn = () => {
   const isSmall = useMediaQuery('(max-width: 992px)')

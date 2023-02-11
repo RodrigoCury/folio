@@ -2,14 +2,18 @@ import { Suspense, useEffect, useState } from 'react'
 import { useDimensions } from '../../utils/hooks/useDimensions'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Canvas } from '@react-three/fiber/'
+import { OrbitControls } from '@react-three/drei/'
 import { useInView } from 'react-intersection-observer'
-import Logo, { Lights } from 'components/three-assets/Logo'
-import useAccentColor from 'utils/hooks/useAccentColors'
-import XpLevel from 'components/three-assets/tech/XpLevel'
-import HTMLContent from 'components/three-assets/tech/HTMLContent'
+import Logo, { Lights } from '../three-assets/Logo'
+import useAccentColor from '../../utils/hooks/useAccentColors'
+import XpLevel from '../three-assets/tech/XpLevel'
+import HTMLContent from '../three-assets/tech/HTMLContent'
 
 const Carousel = ({ techs }) => {
   const [currentPage, setCurrentPage] = useState(0)
+  const [touchStartY, setTouchStartY] = useState(0)
+  const [blockMove, setBlockMove] = useState(false)
+  
   const dimensions = useDimensions()
 
   const turnPage = (page) => {
@@ -25,6 +29,24 @@ const Carousel = ({ techs }) => {
     }
 
     setCurrentPage(nextPage)
+  }
+
+  const onTouchStart = ({ touches : [{ screenY }]}) => {
+    setTouchStartY(screenY)
+  }
+
+  const onTouchMove = ({ touches : [{ screenY }]}) => {
+    if (blockMove) return
+
+    if (touchStartY > screenY) {
+      setBlockMove(true)
+      setTouchStartY(screenY)
+    }
+  }
+
+  const onTouchEnd = () => {
+    setTouchStartY(0)
+    setBlockMove(false)
   }
 
   return (
@@ -44,6 +66,11 @@ const Carousel = ({ techs }) => {
         onWheel={({ deltaY, deltaX }) => {
           turnPage(currentPage + (deltaY > 0 || deltaX > 0 ? 1 : -1))
         }}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onTouchCancel={onTouchEnd}
+        onAnimationComplete={() => { setBlockMove(false) }}
         transition={{
           type: 'spring',
           stiffness: 60,
@@ -52,7 +79,14 @@ const Carousel = ({ techs }) => {
       >
         <AnimatePresence>
           {techs.map((tech, idx) => {
-            return <TechStack key={idx} isEven={idx % 2 === 0} tech={tech} />
+            return (
+              <TechStack
+                key={idx}
+                isEven={idx % 2 === 0}
+                tech={tech}
+                isCurrent={idx === currentPage}
+              />
+            )
           })}
         </AnimatePresence>
       </motion.div>
@@ -70,7 +104,7 @@ const Carousel = ({ techs }) => {
           backgroundColor: '#00000077',
           borderRadius: 30,
           zIndex: 99999999,
-          padding: '8px 4px'
+          padding: '8px 6px'
         }}
       >
         {techs.map((_, idx) => {
@@ -88,7 +122,7 @@ const Carousel = ({ techs }) => {
   )
 }
 
-export const TechStack = ({ tech, isEven }) => {
+export const TechStack = ({ tech, isEven, isCurrent }) => {
   const {
     cameraPosition = [0, 0, 20],
     logo,
@@ -112,7 +146,12 @@ export const TechStack = ({ tech, isEven }) => {
   }, [inView])
 
   return (
-    <div ref={refItem} style={{ height: '100vh', width: '100vw' }}>
+    <motion.div
+      ref={refItem}
+      style={{ height: '100vh', width: '100vw' }}
+      animate={{ opacity: isCurrent ? 1 : 0 }}
+      transition={{ duration: 1 }}
+    >
       <Suspense>
         <Canvas
           shadows
@@ -121,6 +160,7 @@ export const TechStack = ({ tech, isEven }) => {
         >
           {inView && (
             <>
+              <OrbitControls />
               <Logo logo={logo} />
               <Lights />
               <XpLevel level={level} time={time} bgColor={bgColor} />
@@ -134,7 +174,7 @@ export const TechStack = ({ tech, isEven }) => {
           />
         </Canvas>
       </Suspense>
-    </div>
+    </motion.div>
   )
 }
 
@@ -144,19 +184,20 @@ const PageSelector = ({ selected = false, ...props }) => {
       border: 'solid',
       borderColor: '#FFFFFF',
       borderRadius: '32px',
-      rotate: 360
+      scale: 1.1
     },
     unselected: {
       border: 'solid',
       borderColor: '#FFFFFF00',
       borderRadius: '8px',
-      rotate: 0
+      scale: 1.0,
+      transition: { duration: 1 }
     }
   }
 
   const inVariants = {
     selected: {
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FFFFFFAA'
     },
     unselected: {
       backgroundColor: '#FFFFFF55'
@@ -175,9 +216,9 @@ const PageSelector = ({ selected = false, ...props }) => {
         justifyContent: 'center',
         alignItems: 'center',
         cursor: 'pointer',
-        height: '32px',
-        width: '32px',
-        margin: '4px'
+        height: '24px',
+        width: '24px',
+        margin: '4px 0'
       }}
       {...props}
     >

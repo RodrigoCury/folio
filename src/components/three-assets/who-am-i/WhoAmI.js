@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { damp } from 'three/src/math/MathUtils'
 import KeyCaps from './KeyCap'
 import Crystal from './Crystal'
-import useMediaQuery from 'utils/hooks/useMediaQuery'
+import useMediaQuery from '../../../utils/hooks/useMediaQuery'
 
 const WhoAmI = () => {
   const directionalLightRef = useRef()

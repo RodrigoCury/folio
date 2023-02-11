@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { MenuItem } from './MenuItem'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import BrazilianFlag from 'components/icons/BrazillianFlag'
-import AmericanFlag from 'components/icons/AmericanFlag'
+import BrazilianFlag from '../icons/BrazillianFlag'
+import AmericanFlag from '../icons/AmericanFlag'
 
 export const Navigation = ({isOpen}) => {
   const { t } = useTranslation()

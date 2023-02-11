@@ -1,7 +1,7 @@
-const { Html } = require('@react-three/drei')
-const { useRef, useState, useEffect } = require('react')
-const { default: useMediaQuery } = require('utils/hooks/useMediaQuery')
-const { default: TechName } = require('./TechName')
+import { Html }  from '@react-three/drei'
+import { useRef, useState, useEffect }  from 'react'
+import useMediaQuery  from '../../../utils/hooks/useMediaQuery'
+import TechName from './TechName'
 
 const HTMLContent = ({ isEven, title, description, color }) => {
   const ref = useRef()

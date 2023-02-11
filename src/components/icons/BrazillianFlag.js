@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { languages } from 'utils/i18n/index'
+import { languages } from '../../utils/i18n/index'
 
 const portuguese = languages.pt.name
 

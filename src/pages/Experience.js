@@ -1,8 +1,8 @@
 import { Canvas } from '@react-three/fiber'
-import WhoAmI from 'components/three-assets/who-am-i/WhoAmI'
+import WhoAmI from '../components/three-assets/who-am-i/WhoAmI'
 import { Suspense, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
-import useAccentColor from 'utils/hooks/useAccentColors'
+import useAccentColor from '../utils/hooks/useAccentColors'
 import './Experience.scss'
 
 export const Experience = () => {

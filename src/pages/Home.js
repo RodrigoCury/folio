@@ -1,10 +1,10 @@
 import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import Stars from 'components/three-assets/Stars'
+import Stars from '../components/three-assets/Stars'
 import { Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useInView } from 'react-intersection-observer'
-import useAccentColor from 'utils/hooks/useAccentColors'
+import useAccentColor from '../utils/hooks/useAccentColors'
 import Rocket from '../components/three-assets/Rocket'
 import './Home.scss'
 

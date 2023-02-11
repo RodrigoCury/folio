@@ -1,5 +1,5 @@
 import { useGLTF } from '@react-three/drei'
-import useDebugControls from 'utils/hooks/useDebugControls'
+import useDebugControls from '../../../utils/hooks/useDebugControls'
 
 const Crystal = ({ ...props }) => {
   const {

@@ -1,4 +1,4 @@
-import useInterval from 'utils/hooks/useInterval'
+import useInterval from '../../../utils/hooks/useInterval'
 
 import { a, useSprings } from '@react-spring/three'
 import { Text } from '@react-three/drei'

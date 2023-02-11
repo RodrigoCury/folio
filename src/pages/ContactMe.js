@@ -1,14 +1,14 @@
 import { Canvas } from '@react-three/fiber'
-import Planes from 'components/three-assets/exp/Planes.js'
+import Planes from '../components/three-assets/exp/Planes.js'
 import { Suspense, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
-import useAccentColor from 'utils/hooks/useAccentColors'
+import useAccentColor from '../utils/hooks/useAccentColors'
 import { OrbitControls, Sky, Html } from '@react-three/drei'
-import ShakyRig from 'utils/camera/ShakyRig'
+import ShakyRig from '../utils/camera/ShakyRig'
 import { useRef } from 'react'
-import useDebugControls from 'utils/hooks/useDebugControls'
-import Clouds from 'components/three-assets/exp/Cloud'
-import ContactMeForm from 'components/forms/ContactMeForm'
+import useDebugControls from '../utils/hooks/useDebugControls'
+import Clouds from '../components/three-assets/exp/Cloud'
+import ContactMeForm from '../components/forms/ContactMeForm'
 
 export const ContactMe = () => {
   const cameraPosition = [0, 40, 40 / 2]

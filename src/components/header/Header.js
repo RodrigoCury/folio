@@ -1,11 +1,11 @@
 import { useRef } from 'react'
-import { useDimensions } from 'utils/hooks/useDimensions'
+import { useDimensions } from '../../utils/hooks/useDimensions'
 import { motion } from 'framer-motion'
 import './Header.scss'
 import { Navigation } from './Navigation'
 import { MenuToggle } from './MenuToggle'
 import { useState } from 'react'
-import useClickOutside from 'utils/hooks/useClickOutside'
+import useClickOutside from '../../utils/hooks/useClickOutside'
 
 const sidebar = {
   open: (height = 1000) => ({

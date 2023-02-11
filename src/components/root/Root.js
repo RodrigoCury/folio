@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import { AppRoutes } from 'routes/router'
+import { AppRoutes } from '../../routes/router'
 import { Header } from '../header/Header'
 import './Root.scss'
 
