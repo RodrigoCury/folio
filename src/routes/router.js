@@ -15,7 +15,7 @@ export const AppRoutes = () => {
           <Route path='contact' element={<ContactMe />} />
           <Route path='experience' element={<Experience />} />
           <Route path='tech' element={<Tech />} />
-          <Route element={<Home />} />
+          <Route path='*' element={<Home />} />
         </Routes>
       </AnimatePresence>
     </HelmetProvider>
