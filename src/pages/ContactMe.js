@@ -9,6 +9,8 @@ import { useRef } from 'react'
 import useDebugControls from '../utils/hooks/useDebugControls'
 import Clouds from '../components/three-assets/exp/Cloud'
 import ContactMeForm from '../components/forms/ContactMeForm'
+import { useTranslation } from 'react-i18next'
+import { Helmet } from 'react-helmet-async'
 
 export const ContactMe = () => {
   const cameraPosition = [0, 40, 40 / 2]
@@ -16,6 +18,8 @@ export const ContactMe = () => {
   const [refItem, inView] = useInView({
     threshold: 0
   })
+  
+  const { t } = useTranslation()
 
   const sky = useRef()
 
@@ -29,6 +33,9 @@ export const ContactMe = () => {
 
   return (
     <div ref={refItem} style={{ height: '100vh', position: 'relative' }}>
+      <Helmet>
+        <title>{t('title.contact')}</title>
+      </Helmet>
       <Suspense fallback={<div>...loading</div>}>
         <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
           <OrbitControls

@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer'
 import useAccentColor from '../utils/hooks/useAccentColors'
 import Rocket from '../components/three-assets/Rocket'
 import './Home.scss'
+import { Helmet } from 'react-helmet-async'
 
 export const Home = () => {
   const cameraPosition = [0, 0, 25 / 2]
@@ -24,6 +25,9 @@ export const Home = () => {
 
   return (
     <div ref={refItem} style={{ height: '100vh' }}>
+      <Helmet>
+        <title>{t('title.home')}</title>
+      </Helmet>
       <Suspense fallback={null}>
         <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
           <Rocket />

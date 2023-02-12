@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import useAccentColor from '../utils/hooks/useAccentColors'
 import './Experience.scss'
 import ExperiencePages from '../components/three-assets/who-am-i/Experience'
+import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 
 export const Experience = () => {
   const [cameraPosition] = useState([0, 0, 25 / 2])
@@ -14,6 +16,8 @@ export const Experience = () => {
   const [refItem, inView] = useInView({
     threshold: 0
   })
+
+  const { t } = useTranslation()
 
   const changeAccentColor = useAccentColor('#FFFFFF')
 
@@ -27,6 +31,10 @@ export const Experience = () => {
 
   return (
     <div ref={refItem} style={{ height: '100vh' }}>
+      <Helmet>
+        <title>{t('title.exp')}</title>
+      </Helmet>
+
       <Suspense fallback={<div>...loading</div>}>
         <div
           style={{
@@ -38,11 +46,10 @@ export const Experience = () => {
           }}
         >
           <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
-            <WhoAmI currentPage={currentPage}/>
+            <WhoAmI currentPage={currentPage} />
           </Canvas>
         </div>
         <ExperiencePages pageChangeCallback={onPageChange} />
-        
       </Suspense>
     </div>
   )

@@ -4,6 +4,7 @@ import './Tech.scss'
 import { pages as technologies } from '../components/three-assets/logos'
 import useAccentColor from '../utils/hooks/useAccentColors'
 import Carousel from '../components/carousel/Carousel'
+import { Helmet } from 'react-helmet-async'
 
 export const Tech = () => {
   const { t } = useTranslation()
@@ -14,5 +15,12 @@ export const Tech = () => {
     changeColors()
   })
 
-  return <Carousel techs={technologies(t)} />
+  return (
+    <>
+      <Helmet>
+        <title>{t('title.tech')}</title>
+      </Helmet>
+      <Carousel techs={technologies(t)} />
+    </>
+  )
 }

@@ -1,4 +1,3 @@
-export { AboutFolio } from './AboutFolio'
 export { Experience } from './Experience'
 export { ContactMe } from './ContactMe'
 export { Home } from './Home'
