@@ -24,7 +24,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
     } catch {
       props.setFieldError(
         'request',
-        'Erro ao enviar mensagem, tente novamente mais tarde'
+        'contact.me.form.send.error'
       )
     } finally {
       props.setSubmitting(false)
@@ -32,7 +32,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
   }
 
   return (
-    <div className='container'>
+    <>
       <div className='wrapper'>
         <h1>{t('contate-me')}</h1>
 
@@ -48,7 +48,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
                 id='name'
                 name='name'
                 className={`${sent && 'sent'} ${errors.name && 'error'}`}
-                placeholder='Nome'
+                placeholder={t('contact.me.form.name')}
                 required=''
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -57,7 +57,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
                 type='email'
                 id='email'
                 name='email'
-                placeholder='Email'
+                placeholder={t('contact.me.form.email')}
                 className={`${sent && 'sent'} ${errors.email && 'error'}`}
                 required=''
                 onBlur={handleBlur}
@@ -72,7 +72,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
                 onChange={handleChange}
                 id='message'
                 name='message'
-                placeholder='Mensagem'
+                placeholder={t('contact.me.form.message')}
                 required=''
                 rows={5}
               ></Field>
@@ -85,10 +85,10 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
                 type='submit'
                 disabled={anyError(errors) || isSubmitting}
               >
-                Enviar
+               {t('contact.me.form.send')}
               </motion.button>
               {errors.request && (
-                <div className='error-message'>{errors.request}</div>
+                <div className='error-message'>{t(errors.request)}</div>
               )}
             </Form>
           )}
@@ -106,7 +106,7 @@ const ContactMeForm = ({ sentCallback = () => {} }) => {
           <GitHub />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

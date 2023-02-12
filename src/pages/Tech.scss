@@ -25,14 +25,14 @@
     .container-right {
       p {
         grid-column: 1;
-        padding: 0 1em 0 2em;
+        padding: 0 0 0 3em;
       }
     }
 
     .container-left {
       p {
         grid-column: 3;
-        padding: 0 2em 0 1em;
+        padding: 0 3em 0 0;
       }
     }
 

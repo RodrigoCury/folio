@@ -3,7 +3,7 @@ import Planes from '../components/three-assets/exp/Planes.js'
 import { Suspense, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import useAccentColor from '../utils/hooks/useAccentColors'
-import { OrbitControls, Sky, Html } from '@react-three/drei'
+import { OrbitControls, Sky } from '@react-three/drei'
 import ShakyRig from '../utils/camera/ShakyRig'
 import { useRef } from 'react'
 import useDebugControls from '../utils/hooks/useDebugControls'
@@ -28,7 +28,7 @@ export const ContactMe = () => {
   }, [inView])
 
   return (
-    <div ref={refItem} style={{ height: '100vh' }}>
+    <div ref={refItem} style={{ height: '100vh', position: 'relative' }}>
       <Suspense fallback={<div>...loading</div>}>
         <Canvas shadows camera={{ position: cameraPosition, fov: 70 }}>
           <OrbitControls
@@ -37,9 +37,6 @@ export const ContactMe = () => {
             enableRotate={false}
           />
           <Sky ref={sky} {...skyProps} />
-          <Html fullscreen as='div' className={''}>
-            <ContactMeForm />
-          </Html>
           <ShakyRig>
             <directionalLight castShadow={true} intensity={10} />
             <Clouds />
@@ -48,6 +45,7 @@ export const ContactMe = () => {
           </ShakyRig>
         </Canvas>
       </Suspense>
+      <ContactMeForm />
     </div>
   )
 }

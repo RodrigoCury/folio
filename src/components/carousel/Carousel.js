@@ -7,6 +7,7 @@ import Logo, { Lights } from '../three-assets/Logo'
 import useAccentColor from '../../utils/hooks/useAccentColors'
 import XpLevel from '../three-assets/tech/XpLevel'
 import HTMLContent from '../three-assets/tech/HTMLContent'
+import { useTranslation } from 'react-i18next'
 
 const Carousel = ({ techs }) => {
   const [currentPage, setCurrentPage] = useState(0)
@@ -137,6 +138,8 @@ export const TechStack = ({ tech, isEven, isCurrent }) => {
     bgColor = '#000'
   } = tech
 
+  const { i18n: {resolvedLanguage} } = useTranslation()
+
   const [refItem, inView] = useInView({
     threshold: 0.5
   })
@@ -144,10 +147,11 @@ export const TechStack = ({ tech, isEven, isCurrent }) => {
 
   useEffect(() => {
     inView && changeColors()
-    if (inView) {
-      console.log(title)
-    }
   }, [inView])
+
+  useEffect(() => {
+    changeColors()
+  }, [resolvedLanguage])
 
   return (
     <motion.div

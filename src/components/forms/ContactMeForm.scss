@@ -44,123 +44,118 @@ $font-family: 'Roboto', sans-serif;
   transition: 0.25s;
 }
 
-.container {
-  height: 100%;
-  width: 100%;
+.wrapper {
+  margin-right: 25px;
+  border-radius: 25px;
+  border: 3px solid #75E6DA;
+  background: #ffffffc7;
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  max-width: 300px;
+  padding: 45px 45px 10px 45px;
+  z-index: 1;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  transform: translateY(-50%);
 
-  .wrapper {
-    margin-right: 25px;
-    border-radius: 25px;
-    border: 3px solid #75E6DA;
-    background: $background-color-seethrough;
-    position: relative;
-    max-width: 300px;
-    padding: 45px 45px 10px 45px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
+  h1 {
+    text-align: center;
+    color: #189AB4;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 500;
+  }
 
-    h1 {
+  .form {
+
+    input,
+    textarea {
+      @include input;
+
+      ::placeholder,
+      ::-webkit-input-placeholder,
+      ::-moz-placeholder {
+        color: #05445E;
+        font-weight: bold
+      }
+
+    }
+
+    .error {
+      border: 2px solid #ff4375 !important;
+    }
+
+    .error-message {
+      border: 2px solid #ff4375 !important;
+      background: #fba8a8;
+      color: rgb(255, 255, 255);
+      font-size: 1.1em;
       text-align: center;
-      color: #189AB4;
-      margin-bottom: 1em;
-      text-transform: uppercase;
-      font-size: 2em;
-      font-weight: 500;
+      padding: 5px;
+      border-radius: 10px;
+      margin-top: 15px;
     }
 
-    .form {
-
-      input,
-      textarea {
-        @include input;
-
-        ::placeholder,
-        ::-webkit-input-placeholder,
-        ::-moz-placeholder {
-          color: #05445E;
-          font-weight: bold
-        }
-
-      }
-
-      .error {
-        border: 2px solid #ff4375 !important;
-      }
-
-      .error-message {
-        border: 2px solid #ff4375 !important;
-        background: #fba8a8;
-        color: rgb(255, 255, 255);
-        font-size: 1.1em;
-        text-align: center;
-        padding: 5px;
-        border-radius: 10px;
-        margin-top: 15px;
-      }
-
-      .sent {
-        border: 2px solid #00ff77 !important;
-      }
-
-      .btn {
-        @include btn;
-      }
-
-      .btn:hover {
-        -webkit-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
-        -moz-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
-        box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
-      }
-
-      .btn:active {
-        -webkit-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
-        -moz-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
-        box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
-      }
-
-      .btn:disabled {
-        background-color: #45666d !important;
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        box-shadow: none !important;
-      }
-
+    .sent {
+      border: 2px solid #00ff77 !important;
     }
 
-    .form .register-form {
-      display: none;
+    .btn {
+      @include btn;
     }
+
+    .btn:hover {
+      -webkit-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+      -moz-box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+      box-shadow: inset 2px 2px 20px -4px rgba(5, 68, 94, 1);
+    }
+
+    .btn:active {
+      -webkit-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+      -moz-box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+      box-shadow: inset 1px 1px 20px -4px rgba(5, 68, 94, 1);
+    }
+
+    .btn:disabled {
+      background-color: #45666d !important;
+      -webkit-box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+  }
+
+  .form .register-form {
+    display: none;
   }
 }
 
+
 @media (max-width: 992px) {
-  .container {
-    align-items: center;
-    
-    .wrapper {
-      margin-left: 10px  !important;
-      margin-right: 10px  !important;
-      animation-name: inScreen;
-      animation-duration: 3s;
-      transform: translateY(calc(200vh));
-      animation-delay: 1s;
-      animation-fill-mode:forwards;
-    }
+  .wrapper {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    animation-name: inScreen;
+    animation-duration: 3s;
+    transform: translateY(200vh);
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    height: 504px;
   }
 }
 
 @keyframes inScreen {
   0% {
-      transform: translateY(calc(200vh));
-      animation-timing-function:ease-in-out
+    transform: translateY(200vh);
+    animation-timing-function: ease-in-out
   }
 
   100% {
-      transform: translateY(0);
-      animation-timing-function:ease-in-out
+    transform: translateY(-100px);
+    animation-timing-function: ease-in-out
   }
 }

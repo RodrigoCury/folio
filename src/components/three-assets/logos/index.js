@@ -107,31 +107,6 @@ export const pages = (t) => [
   {
     logo: (
       <>
-        <KtLogo position={[0, 0, 0]} />
-        <CubicBezierLine
-          start={[0, 0, -0.5]}
-          end={[1.5, -1, -1]}
-          midA={[0, -2, 0]}
-          midB={[3, -2, -2]}
-          color={{ r: 50, b: 127, g: 176 }}
-          lineWidth={1}
-          dashed={false}
-          linewidth={2}
-          linecap={'round'}
-          linejoin={'round'}
-        />
-        <RxLogo position={[1.5, -1, -1]} scale={[0.25, 0.25, 0.25]} />
-      </>
-    ),
-    title: t('languages.kotlin'),
-    level: 5,
-    time: 1,
-    description: t('languages.kotlin.description'),
-    bgColor: '#5344A5'
-  },
-  {
-    logo: (
-      <>
         <JavaLogo position={[0, 0, 0]} />
         <CubicBezierLine
           start={[0, -0.65, -0.5]}
@@ -155,6 +130,31 @@ export const pages = (t) => [
     bgColor: '#DC7319'
   },
   {
+    logo: (
+      <>
+        <KtLogo position={[0, 0, 0]} />
+        <CubicBezierLine
+          start={[0, 0, -0.5]}
+          end={[1.5, -1, -1]}
+          midA={[0, -2, 0]}
+          midB={[3, -2, -2]}
+          color={{ r: 50, b: 127, g: 176 }}
+          lineWidth={1}
+          dashed={false}
+          linewidth={2}
+          linecap={'round'}
+          linejoin={'round'}
+        />
+        <RxLogo position={[1.5, -1, -1]} scale={[0.25, 0.25, 0.25]} />
+      </>
+    ),
+    title: t('languages.kotlin'),
+    level: 5,
+    time: 1,
+    description: t('languages.kotlin.description'),
+    bgColor: '#5344A5'
+  },
+  {
     logo: <NodeLogo position={[0, 0, 0]} scale={[2.25, 2.25, 2.25]} />,
     title: t('languages.nodejs'),
     level: 4,
@@ -167,7 +167,7 @@ export const pages = (t) => [
     title: t('languages.python'),
     level: 3,
     time: 2,
-    description: t('technology.python.description'),
+    description: t('languages.python.description'),
     bgColor: '#4590CE'
   },
   {
