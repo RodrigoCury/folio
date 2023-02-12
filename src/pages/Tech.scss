@@ -25,12 +25,14 @@
     .container-right {
       p {
         grid-column: 1;
+        padding: 0 1em 0 2em;
       }
     }
 
     .container-left {
       p {
         grid-column: 3;
+        padding: 0 2em 0 1em;
       }
     }
 
@@ -42,7 +44,6 @@
 
 
       p {
-        padding: 0 1em;
         align-self: center;
         text-align: justify;
         margin: 2em;

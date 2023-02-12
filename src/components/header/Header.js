@@ -13,16 +13,41 @@ const sidebar = {
     transition: {
       type: 'spring',
       stiffness: 20,
-      restDelta: 2
+      restDelta: 2,
+      width: {
+        delay: 0,
+        duration: 0.1
+      }
     }
   }),
   closed: {
     clipPath: 'circle(30px at 40px 40px)',
     transition: {
+      width: {
+        delay: 1
+      },
       delay: 0.5,
       type: 'spring',
       stiffness: 400,
       damping: 40
+    }
+  }
+}
+
+const nav = {
+  open: {
+    width: '300px',
+    height: '100vh',
+    transition: {
+      delay: 0,
+      duration: 0.1
+    }
+  },
+  closed: {
+    width: '70px',
+    height: '10vh',
+    transition: {
+      delay: 1
     }
   }
 }
@@ -34,7 +59,7 @@ export const Header = () => {
   const { height } = useDimensions(containerRef)
 
   const toggleOpen = () => {
-    setIsOpen((isOpen) =>  !isOpen)
+    setIsOpen((isOpen) => !isOpen)
   }
 
   const close = () => {
@@ -51,6 +76,7 @@ export const Header = () => {
       animate={isOpen ? 'open' : 'closed'}
       custom={height}
       className='nav'
+      variants={nav}
       ref={containerRef}
     >
       <motion.div className='background' variants={sidebar}></motion.div>

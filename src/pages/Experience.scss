@@ -33,21 +33,13 @@
   left: 5vw;
 }
 
-.subtext_1 {
-  top: 125vh;
-}
-
-.subtext_2 {
-  top: 200vh;
-}
-
-.subtext_3 {
-  top: 270vh;
-}
-
+.subtext_1,
+.subtext_2,
+.subtext_3,
 .subtext_4 {
-  top: 350vh;
+  align-self: center;
 }
+
 
 .link {
   text-decoration: none;
@@ -56,7 +48,7 @@
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
-  text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
 }
 
 
@@ -65,49 +57,55 @@
   .who_am_i {
     color: rgb(0, 0, 0);
     position: absolute;
-    text-shadow: 0px 0px 20px rgb(255, 255, 255);
+    text-shadow: 0px 0px 5px rgb(255, 255, 255);
   }
-
+  
   .heading {
     font-family: 'Courier New';
     text-transform: capitalize;
     font-weight: 400;
     font-size: 15vw;
     text-align: end;
-    top: 65vh;
-    right: 5vw;
   }
-
-  .subtext_1 {
-    font-size: 2em;
-    top: 165vh;
-    left: 5vw;
-    max-width: 90vw;
-    text-align: left;
-  }
-
-  .subtext_2 {
-    font-size: 2em;
-    top: 235vh;
-    left: 5vw;
-    max-width: 90vw;
-    text-align: right;
-  }
-
-  .subtext_3 {
-    font-size: 2em;
-    top: 300vh;
-    left: 5vw;
-    max-width: 90vw;
-    text-align: left;
-  }
-
+  
+  .subtext_1,
+  .subtext_2,
+  .subtext_3,
   .subtext_4 {
-    font-size: 2em;
-    top: 380vh;
-    left: 5vw;
-    max-width: 90vw;
-    text-align: right;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: #bababa9f;
+    text-align: left;
+    font-size: 1em;
+    max-width: 60vw;
   }
-
+  
+  .subtext_1,
+  .subtext_3 {
+    right: 10vw;
+  }
+  
+  .subtext_2,
+  .subtext_4 {
+    left: 10vw;
+  }
+  
+  .subtext_1,
+  .subtext_2,
+  .subtext_3,
+  .subtext_4 {
+    align-self: center;
+  }
+  
+  
+  .link {
+    text-decoration: none;
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+  }
+  
 }

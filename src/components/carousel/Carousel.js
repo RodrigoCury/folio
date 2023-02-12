@@ -2,7 +2,6 @@ import { Suspense, useEffect, useState } from 'react'
 import { useDimensions } from '../../utils/hooks/useDimensions'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Canvas } from '@react-three/fiber/'
-import { OrbitControls } from '@react-three/drei/'
 import { useInView } from 'react-intersection-observer'
 import Logo, { Lights } from '../three-assets/Logo'
 import useAccentColor from '../../utils/hooks/useAccentColors'
@@ -38,9 +37,14 @@ const Carousel = ({ techs }) => {
   const onTouchMove = ({ touches : [{ screenY }]}) => {
     if (blockMove) return
 
-    if (touchStartY > screenY) {
+    if (touchStartY < screenY) {
       setBlockMove(true)
       setTouchStartY(screenY)
+      turnPage(currentPage - 1)
+    } else if (touchStartY > screenY) {
+      setBlockMove(true)
+      setTouchStartY(screenY)
+      turnPage(currentPage + 1)
     }
   }
 
@@ -160,7 +164,6 @@ export const TechStack = ({ tech, isEven, isCurrent }) => {
         >
           {inView && (
             <>
-              <OrbitControls />
               <Logo logo={logo} />
               <Lights />
               <XpLevel level={level} time={time} bgColor={bgColor} />

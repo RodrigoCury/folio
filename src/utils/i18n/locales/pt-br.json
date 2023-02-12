@@ -1,5 +1,4 @@
 {
-  "about.me": "Sobre Mim",
   "contate-me": "Contate-me",
   "cury": "CURY",
   "desenvolvedor.backend.pleno": "Desenvolvedor Backend Pleno",
@@ -16,6 +15,7 @@
   "rodrigo.cury": "Rodrigo Cury",
   "sobre.o.portifolio": "Sobre o Portifólio",
   "technology.aws": "AWS",
+  "technology.aws.description": "AWS",
   "technology.docker": "Docker",
   "technology.docker.description": "Trabalho com docker diariamente para desenvolver em ambientes idênticos à produção e diminuir inconsitências",
   "technology.front": "Front End",
@@ -36,5 +36,5 @@
   "tecnologias": "Tecnologias",
   "who-am-i.1": "Sou um programador apaixonado, com experiência em projetos grandes e complexos. Atualmente trabalho na <a class='link' href='https://www.wswork.com.br/' target='_blank' rel='noopener noreferrer'>WS Work</a>, uma empresa de terceirização de desenvolvimento, com clientes como Samarco, Fast2Mine, e.Sales, Creare e Privacy Tools. E tenho a oportunidade de trabalhar em projetos de grande escala e impacto." ,
   "who-am-i.2": "Trabalhei para a <a class='link' href='https://privacytools.com.br/' target='_blank' rel='noopener noreferrer'>Privacy Tools</a>, por quase um ano. Desenvolvendo soluções complexas para auxiliar empresas a estarem em conformidade com a LGPD.<br/> <br/>Contribuí com a concepção e implementação de processos eficientes para gestão de dados complexos para facilitar o cumprimento de regulamentos da LGPD. Implementando medidas de segurança para garantir privacidade e proteçãode dados.<br/> <br/>Trabalhando com equipes de desenvolvimento, juristas e gerentes de produto. Treinando novos desenvolvedores para entenderem o funcionamento, estrutura e tecnologias. Identifiquei e abordei proativamente potenciais riscos, garantindo o sucesso do projeto. <br/> <br/>Estabeleci uma reputação como bom desenvolvedor e confiável na equipe, e me tornei uma figura a ser consultada por outros.",
-  "who-am-i.3": "Atualmente presto serviços à <a class='link' href='https://www.crearesistemas.com.br/' target='_blank' rel='noopener noreferrer'>Creare Sistemas</a>,  uma empresa dinâmica e de ritmo acelerado, fornecendo soluções avançadas de gerenciamento de frotas para grandes empresas<br/><br/>Lido com uma grande infraestutura de microserviços, gerenciando um grande fluxo de dados telemetricos, a fim de monitorar em tempo real a situação de frotas.<br/><br/>Desenvolvo e mantenho aplicações escaláveis, seguras e confiáveis que atendem às necessidades e expectativas dos clientes<br/>Contribuo para a melhoria contínua da oferta de produtos da empresa sugerindo e implementando novas características e funcionalidades.Procurando resolver problemas técnicos complexos e trabalhei para resolvê-los em tempo hábil."
+  "who-am-i.3": "Atualmente presto serviços à <a class='link' href='https://www.crearesistemas.com.br/' target='_blank' rel='noopener noreferrer'>Creare Sistemas</a>,  uma empresa dinâmica e de ritmo acelerado, fornecendo soluções avançadas de gerenciamento de frotas para grandes empresas<br/><br/>Lido com uma grande infraestutura de microserviços, gerenciando um grande fluxo de dados telemetricos, a fim de monitorar em tempo real a situação de frotas.<br/><br/>Desenvolvo e mantenho aplicações escaláveis, seguras e confiáveis que atendem às necessidades e expectativas dos clientes<br/><br/>Contribuo para a melhoria contínua da oferta de produtos da empresa sugerindo e implementando novas características e funcionalidades.Procurando resolver problemas técnicos complexos e trabalhei para resolvê-los em tempo hábil."
 }

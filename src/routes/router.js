@@ -9,7 +9,6 @@ export const AppRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path='' element={<Home />} />
         <Route path='about-folio' element={<AboutFolio />} />
-        <Route path='about-me' element={<div />} />
         <Route path='contact' element={<ContactMe />} />
         <Route path='experience' element={<Experience />} />
         <Route path='tech' element={<Tech />} />

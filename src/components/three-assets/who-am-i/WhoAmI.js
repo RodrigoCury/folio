@@ -1,13 +1,16 @@
-import { Image, Scroll, ScrollControls, useIntersect } from '@react-three/drei'
+import { Image, useIntersect } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import { Suspense, useRef, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useEffect, useRef, useState } from 'react'
 import { damp } from 'three/src/math/MathUtils'
 import KeyCaps from './KeyCap'
 import Crystal from './Crystal'
 import useMediaQuery from '../../../utils/hooks/useMediaQuery'
+import { Vector3 } from 'three'
 
-const WhoAmI = () => {
+const vec = new Vector3()
+
+const WhoAmI = ({ currentPage }) => {
+  const group = useRef()
   const directionalLightRef = useRef()
   const directionalLightRef2 = useRef()
 
@@ -22,49 +25,30 @@ const WhoAmI = () => {
     }
   })
 
-  const { t } = useTranslation()
+  useFrame((_, delta) => {
+    const [x, y, z] = pagePosition(currentPage)
+    group.current.position.lerp(vec.set(x, y, z), delta * 2)
+  })
+
+  useEffect(() => {
+    console.log(group.current)
+  }, [group.current])
 
   return (
-    <Suspense>
-      <ScrollControls damping={10} pages={3.3}>
-        <Items />
-        <directionalLight
-          ref={directionalLightRef2}
-          position={[-1, 0, 10]}
-          intensity={0.5}
-        />
-        <directionalLight
-          ref={directionalLightRef}
-          position={[0, 0, 2]}
-          intensity={0.25}
-        />
-        <Scroll html style={{ width: '100%' }}>
-          <h1 className='who_am_i heading'>
-            {t('name.first')}
-            <br />
-            {t('name.last')}
-          </h1>
-          <h2
-            className='who_am_i subtext_1'
-            dangerouslySetInnerHTML={{
-              __html: t('who-am-i.1', { interpolation: { escapeValue: false } })
-            }}
-          />
-          <h2
-            className='who_am_i subtext_2'
-            dangerouslySetInnerHTML={{
-              __html: t('who-am-i.3', { interpolation: { escapeValue: false } })
-            }}
-          />
-          <h2
-            className='who_am_i subtext_3'
-            dangerouslySetInnerHTML={{
-              __html: t('who-am-i.2', { interpolation: { escapeValue: false } })
-            }}
-          />
-        </Scroll>
-      </ScrollControls>
-    </Suspense>
+    <group ref={group}>
+      <Items />
+      <directionalLight
+        ref={directionalLightRef2}
+        position={[-1, 0, 10]}
+        intensity={0.25}
+      />
+      <directionalLight
+        ref={directionalLightRef}
+        position={[0, 0, 2]}
+        intensity={0.25}
+      />
+      <ambientLight intensity={0.25} />
+    </group>
   )
 }
 function Items() {
@@ -73,7 +57,7 @@ function Items() {
   const isSmall = useMediaQuery('(max-width: 1200px)')
 
   return (
-    <Scroll>
+    <>
       <Crystal />
       <KeyCaps />
       <Item
@@ -91,7 +75,7 @@ function Items() {
         scale={isSmall ? [w / 2, w / 2.5, 1] : [w / 3, w / 4.5, 1]}
         position={[-w / 4.5, -h * 2.25, 0]}
       />
-    </Scroll>
+    </>
   )
 }
 
@@ -134,6 +118,14 @@ function Item({ url, scale, ...props }) {
       />
     </group>
   )
+}
+
+const pagePosition = (page) => {
+  if (page === 0) return [0, 0, 0]
+  else if (page === 1) return [0, 13, 0]
+  else if (page === 2) return [0, 26, 0]
+  else if (page === 3) return [0, 39, 0]
+  else return [0, 0, 0]
 }
 
 export default WhoAmI

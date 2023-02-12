@@ -49,7 +49,6 @@ export const Navigation = ({isOpen}) => {
 }
 
 const menuItems = [
-  { link: '/about-me', name: 'about.me' },
   { link: '/experience', name: 'experiencia' },
   { link: '/tech', name: 'tecnologias' },
   { link: '/contact', name: 'contate-me' }
@@ -84,6 +83,7 @@ const translationVariants = {
     x: 0,
     opacity: 1,
     transition: {
+      delay: 0.5,
       x: { stiffness: 1000, velocity: -100 }
     }
   },
